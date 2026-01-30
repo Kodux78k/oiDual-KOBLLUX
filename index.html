@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!-- 
     ⧈ KOBLLUX_Δ³ :: DUAL // FUSION OS — V7 (Final Fluid)
     ╔════════════════════════════════════════════════════════════════════════════╗
@@ -8,8 +7,6 @@
     ╚════════════════════════════════════════════════════════════════════════════╝
     -->
 <html lang="pt-BR"><head>
-  <!-- ⧈ KOBLLUX_Δ³ :: INTEGRAL MODULAR INJECTION -->
-  <script type="module" src="https://kodux78k.github.io/oiDual-tst2/KOBLLUX_MODULAR/CORPO/logic/bootloader.js"></script>
   <meta charset="utf-8">
   <title>DUAL // FUSION OS — V7 (Final Fluid)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -18,11 +15,20 @@
   <link rel="apple-touch-icon" href="./icon-192.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  
+  <!-- CodeMirror CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material-darker.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+  
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  
+  <script type="module" src="./KOBLLUX_MODULAR/CORPO/logic/bootloader.js"></script>
 
 <style id="UNIFIED_STYLE">
 /* Δ7-V: GLSL (Estética Vibracional / Shaders CSS) */
@@ -79,14 +85,15 @@ html,body{height:100%;margin:0;font-family:var(--font-ui),system-ui,-apple-syste
 
 /* subtle grid background */
 body{
-  min-height:100dvh;
-    height:100%;
+  min-height:100vh;
+height:100%;
+
   overflow:auto;
-  background-image:
+   background-image:
     linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size:52px 52px;
-  background-position:center;
+  background-position:center; 
 }
 
 /* ========== AMBIENT BLOBS ========== */
@@ -116,7 +123,7 @@ body{
 .fusion-card{
   pointer-events:auto;
   width:100%; max-width:440px;
-  max-height:85vh; overflow-y:auto; overflow-x:hidden;
+  max-height:78vh; overflow-y:auto; overflow-x:hidden;
   background:var(--glass-surface); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px);
   border:1px solid var(--glass-border); border-radius:36px; padding:30px 25px;
   box-shadow:0 40px 100px rgba(0,0,0,0.8);
@@ -287,19 +294,45 @@ body{
   margin:1rem 0;padding:1.2rem;border-radius:12px;
   animation:fadeIn 1.8s ease forwards; transition:box-shadow 0.4s,transform 0.4s;
   line-height:1.5;position:relative;cursor:pointer;overflow:hidden;animation:pulse 6s infinite ease-in-out;
-  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25));
-  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.3));
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.response-block h3{margin-bottom:12px}
-.response-block:hover{box-shadow:0 0 15px rgba(0,255,255,0.12)}
+.response-block h3{margin-bottom:12px; font-weight: 700; letter-spacing: 0.5px; color: var(--neon-cyan);}
+.response-block:hover{box-shadow:0 8px 25px rgba(0,242,255,0.15); border-color: rgba(0,242,255,0.2); transform: translateY(-2px);}
 .response-block .meta{position:absolute;top:8px;right:8px;display:flex;gap:6px}
 .crystal-btn{background:rgba(0,0,0,0.25);border-radius:6px;padding:6px;cursor:pointer;border:none;color:var(--neon-cyan)}
 .response-block.clicked{animation:clickPulse 0.8s ease-out}
-.response-block.expanded{transform:scale(1.03); background:rgba(0,0,0,0.6); z-index:2}
+.response-block.expanded{transform:scale(1.02); background:rgba(0,0,0,0.7); z-index:2; border-color: var(--neon-purple); box-shadow: 0 0 30px rgba(189,0,255,0.2);}
 .intro{background:linear-gradient(135deg,rgba(0,255,255,0.08),rgba(0,100,100,0.04));border-left:4px solid #0ff}
 .middle{background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(50,50,50,0.06));border-left:4px solid rgba(255,255,255,0.2)}
 .ending{background:linear-gradient(135deg,rgba(255,0,255,0.06),rgba(100,0,100,0.04));border-left:4px solid #f0f}
 .footer-text{margin-top:12px;font-size:0.78em;text-align:center;font-style:italic}
+
+/* ========== CODEMIRROR & ENHANCED RENDERING ========== */
+.code-editor-container{border-radius:12px;overflow:hidden;border:1px solid rgba(0,242,255,0.2);background:rgba(10,14,39,0.6);margin:1rem 0;box-shadow:0 4px 15px rgba(0,0,0,0.3)}
+.code-editor-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,rgba(0,242,255,0.1),rgba(189,0,255,0.1));border-bottom:1px solid rgba(0,242,255,0.15)}
+.code-lang{font-family:var(--font-code);font-size:0.75rem;font-weight:700;color:var(--neon-cyan);text-transform:uppercase;letter-spacing:1px}
+.play-btn{background:linear-gradient(135deg,rgba(0,242,255,0.2),rgba(189,0,255,0.2));border:1px solid rgba(0,242,255,0.3);border-radius:6px;padding:6px 10px;cursor:pointer;color:var(--neon-cyan);transition:all 0.3s ease;display:flex;align-items:center;gap:6px}
+.play-btn:hover{background:linear-gradient(135deg,rgba(0,242,255,0.3),rgba(189,0,255,0.3));box-shadow:0 0 15px rgba(0,242,255,0.2);transform:translateY(-2px)}
+.code-editor{overflow:auto;max-height:400px;background:rgba(5,7,10,0.8)}
+.code-editor .CodeMirror{background:rgba(5,7,10,0.8)!important;color:#d7d7d7!important;font-family:var(--font-code)!important;font-size:13px!important;line-height:1.5!important}
+.code-editor .CodeMirror-gutters{background:rgba(10,14,39,0.6)!important;border-right:1px solid rgba(0,242,255,0.1)!important}
+.code-editor .CodeMirror-linenumber{color:rgba(255,255,255,0.3)!important}
+.code-preview{padding:20px;background:rgba(10,14,39,0.4);border-top:1px solid rgba(0,242,255,0.1);min-height:100px;max-height:500px;overflow:auto}
+.code-preview.hidden{display:none}
+
+.html-render-container{border-radius:12px;overflow:hidden;border:1px solid rgba(189,0,255,0.2);background:rgba(10,14,39,0.6);margin:1rem 0;box-shadow:0 4px 15px rgba(189,0,255,0.1)}
+.html-render-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,rgba(189,0,255,0.1),rgba(255,215,0,0.05));border-bottom:1px solid rgba(189,0,255,0.15)}
+.copy-html-btn{background:linear-gradient(135deg,rgba(189,0,255,0.2),rgba(255,215,0,0.1));border:1px solid rgba(189,0,255,0.3);border-radius:6px;padding:6px 10px;cursor:pointer;color:var(--neon-purple);transition:all 0.3s ease;display:flex;align-items:center;gap:6px}
+.copy-html-btn:hover{background:linear-gradient(135deg,rgba(189,0,255,0.3),rgba(255,215,0,0.15));box-shadow:0 0 15px rgba(189,0,255,0.2);transform:translateY(-2px)}
+.html-render-output{padding:20px;background:rgba(5,7,10,0.5);min-height:100px;max-height:600px;overflow:auto}
+
+.iframe-embed-container{border-radius:12px;overflow:hidden;border:1px solid rgba(0,255,157,0.2);background:rgba(10,14,39,0.6);margin:1rem 0;box-shadow:0 4px 15px rgba(0,255,157,0.1);display:flex;justify-content:center;align-items:center;min-height:300px}
+.link-embed-iframe{width:100%;height:100%;min-height:400px;border:none}
+
+.response-block-header{margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid rgba(0,242,255,0.2)}
+.response-block-header h3{margin:0;font-size:1.2rem;font-weight:700;color:var(--neon-cyan);text-transform:uppercase;letter-spacing:0.5px}
 
 /* ========== INPUT CONTAINER (bottom) ========== */
 .input-container{position:fixed;left:20px;right:20px;bottom:90px;display:flex;gap:10px;z-index:2;max-width:calc(100% - 40px)}
@@ -378,7 +411,7 @@ body.zen-mode .response-container, body.zen-mode .input-container, body.zen-mode
 /* symbolbar / controls / iframe area */
 .wrap{width:100%;height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .content{flex:1;position:relative;display:flex}
-iframe#frame{width:100%;height:100%;overflow:auto; min-height:100dvh;border:0;transition:opacity .4s;opacity:1}
+iframe#frame{width:100%;height:100%;border:0;transition:opacity .4s;opacity:1}
 .symbol-bar{position:fixed;right:8px;top:33%;
   display:none;flex-direction:column;gap:10px;z-index:60}
 .symbol-button{width:28px;height:28px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:var(--card-bg);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px)}
@@ -415,7 +448,7 @@ iframe#frame{width:100%;height:100%;overflow:auto; min-height:100dvh;border:0;tr
 .raw-html-card{ background: var(--txt-card); border:1px dashed color-mix(in oklab, var(--ink) 16%, transparent); border-radius:14px; padding:.85rem 1rem; margin:.9rem 0 }
 .raw-html-card .raw-note{ color: color-mix(in oklab, var(--ink) 62%, transparent); font-size:.85em; margin-bottom:.35rem }
 
-/* ========== LIST BEAUTY V2 ========== */
+/* ========== LIST BEAUTY V2 ========= */
 .list-card{ background:var(--list-bg, color-mix(in oklab, var(--panel) 90%, black)); border-radius:var(--list-radius, 16px); box-shadow:var(--list-shadow, 0 6px 24px rgba(0,0,0,.25), inset 0 0 0 1px color-mix(in oklab, var(--ink) 16%, transparent)); border:1px solid var(--list-border, color-mix(in oklab, var(--ink) 16%, transparent)); padding:clamp(.6rem,.9rem,1rem); margin:.85rem 0; }
 .list-card ul, .list-card ol{ margin:.25rem 0; padding:0; list-style:none; }
 .list-card li{ display:grid; grid-template-columns:auto 1fr; gap:.65rem; align-items:start; padding:.35rem .25rem; }
@@ -1620,6 +1653,15 @@ modelSelect?.addEventListener('change', e => {
 /* simples parser markdown leve (bold, italic, inline code, links, codeblocks, lists) */
 function mdToHtml(md){
   if(!md) return '';
+
+  // 🔥 BLINDAGEM SUPREMA: Se for HTML/Iframe, devolve cru e intacto.
+  // Isso impede que o regex de Markdown quebre URLs com query strings (?v=...) dentro do src=""
+  if (/<iframe|<div|<script|<video/i.test(md)) {
+    return md;
+  }
+
+  // --- O resto continua igual ---
+  
   // code block ``` ``` 
   md = md.replace(/```([^`]*)```/gs, function(_, code){ return '<pre><code>' + escapeHtml(code) + '</code></pre>'; });
   // inline code `code`
@@ -1633,10 +1675,121 @@ function mdToHtml(md){
   // unordered lists (- or *)
   md = md.replace(/(^|\n)[\-\*]\s+(.+?)(?=\n|$)/g, function(_, pre, item){ return pre + '<li>' + item + '</li>'; });
   md = md.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
-  // paragraphs: remaining single newlines -> <br>, double newlines -> separate paragraphs
+  // paragraphs
   const paras = md.split(/\n{2,}/).map(p => p.trim()).filter(Boolean);
   return paras.map(p => '<p>' + p.replace(/\n/g,'<br>') + '</p>').join('');
 }
+
+/* ========== ENHANCED RENDER SYSTEM: CodeMirror + Play Button + iFrame Embed ========== */
+
+// Detecção de tipos de conteúdo
+const detectContentType = (text) => {
+  if (!text) return 'text';
+  if (/<html|<body|<div|<section/i.test(text)) return 'html';
+  if (/<iframe[^>]*src=["']https?:\/\/[^"']*embed/i.test(text)) return 'iframe-embed';
+  if (/^```(html|javascript|css|jsx|tsx)/i.test(text)) return 'code-block';
+  if (/^#+\s|^\*\*|^- |^\d+\./m.test(text)) return 'markdown';
+  return 'text';
+};
+
+// Renderizador de código com CodeMirror
+const renderCodeBlock = (code, language = 'html') => {
+  const container = document.createElement('div');
+  container.className = 'code-editor-container';
+  const header = document.createElement('div');
+  header.className = 'code-editor-header';
+  header.innerHTML = `<span class="code-lang">${language.toUpperCase()}</span><button class="play-btn" title="Executar código"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></button>`;
+  const editorDiv = document.createElement('div');
+  editorDiv.className = 'code-editor';
+  const previewDiv = document.createElement('div');
+  previewDiv.className = 'code-preview hidden';
+  container.appendChild(header);
+  container.appendChild(editorDiv);
+  container.appendChild(previewDiv);
+  if (typeof CodeMirror !== 'undefined') {
+    const editor = CodeMirror(editorDiv, {value: code, mode: language === 'html' ? 'htmlmixed' : language, theme: 'material-darker', lineNumbers: true, lineWrapping: true, indentUnit: 2, tabSize: 2, readOnly: false, height: 'auto', maxHeight: '400px'});
+    const playBtn = header.querySelector('.play-btn');
+    playBtn.addEventListener('click', () => {
+      const htmlCode = editor.getValue();
+      previewDiv.innerHTML = '';
+      if (language === 'html') { previewDiv.innerHTML = htmlCode; } else { previewDiv.innerHTML = `<pre><code>${escapeHtml(htmlCode)}</code></pre>`; }
+      previewDiv.classList.remove('hidden');
+      previewDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  } else {
+    editorDiv.innerHTML = `<pre><code>${escapeHtml(code)}</code></pre>`;
+  }
+  return container;
+};
+
+// Renderizador de iFrame LinkEmbed com Sandbox
+const renderLinkEmbedIframe = (iframeHtml) => {
+  const container = document.createElement('div');
+  container.className = 'iframe-embed-container';
+  const srcMatch = iframeHtml.match(/src=["']([^"']+)["']/);
+  const widthMatch = iframeHtml.match(/width=["']?(\d+)["']?/);
+  const heightMatch = iframeHtml.match(/height=["']?(\d+)["']?/);
+  const src = srcMatch ? srcMatch[1] : '';
+  const width = widthMatch ? widthMatch[1] : '100%';
+  const height = heightMatch ? heightMatch[1] : '400';
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.frameBorder = '0';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+  iframe.allowFullscreen = true;
+  iframe.sandbox.add('allow-same-origin', 'allow-scripts', 'allow-forms', 'allow-popups', 'allow-presentation');
+  iframe.className = 'link-embed-iframe';
+  container.appendChild(iframe);
+  return container;
+};
+
+// Renderizador de HTML puro
+const renderHtmlContent = (htmlCode) => {
+  const container = document.createElement('div');
+  container.className = 'html-render-container';
+  const header = document.createElement('div');
+  header.className = 'html-render-header';
+  header.innerHTML = `<span class="code-lang">HTML RENDER</span><button class="copy-html-btn" title="Copiar código"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></button>`;
+  const renderDiv = document.createElement('div');
+  renderDiv.className = 'html-render-output';
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlCode;
+  renderDiv.appendChild(tempDiv);
+  container.appendChild(header);
+  container.appendChild(renderDiv);
+  const copyBtn = header.querySelector('.copy-html-btn');
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(htmlCode).then(() => {
+      copyBtn.innerHTML = '✓';
+      setTimeout(() => { copyBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>`; }, 1500);
+    });
+  });
+  return container;
+};
+
+// Renderizador de bloco de resposta melhorado
+const renderResponseBlockEnhanced = (body, title) => {
+  const contentType = detectContentType(body);
+  const b = document.createElement('div');
+  b.className = 'response-block';
+  const header = document.createElement('div');
+  header.className = 'response-block-header';
+  header.innerHTML = `<h3>${title}</h3>`;
+  const blockBody = document.createElement('div');
+  blockBody.className = 'block-body';
+  if (contentType === 'html') { blockBody.appendChild(renderHtmlContent(body)); }
+  else if (contentType === 'iframe-embed') { blockBody.appendChild(renderLinkEmbedIframe(body)); }
+  else if (contentType === 'code-block') {
+    const match = body.match(/```(html|javascript|css|jsx|tsx)?\n([\s\S]*?)```/);
+    if (match) { const language = match[1] || 'html'; const code = match[2]; blockBody.appendChild(renderCodeBlock(code, language)); }
+    else { blockBody.innerHTML = mdToHtml(body); }
+  } else { blockBody.innerHTML = mdToHtml(body); }
+  b.appendChild(header);
+  b.appendChild(blockBody);
+  return b;
+};
 
 /* divide texto em grupos de 3 blocos (fallback para sentenças) */
 const splitBlocks = text => {
@@ -1671,9 +1824,9 @@ const renderPaginatedResponse = text => {
     // content container
     tris.forEach((body, j) => {
       const cls = j===0 ? 'intro' : j===1 ? 'middle' : 'ending';
-      // convert markdown-lite to html inside block-body
-      const htmlBody = mdToHtml(body);
-      const b = createEl('div','response-block '+cls, `<h3>${titles[j]}</h3><div class="block-body">${htmlBody}</div>`);
+      // ✨ USAR NOVO RENDERIZADOR MELHORADO COM CODEMIRROR
+      const b = renderResponseBlockEnhanced(body, titles[j]);
+      b.classList.add(cls);
       const meta = createEl('div','meta');
       const crystalBtn = createEl('button','crystal-btn','✶');
       crystalBtn.title = 'Cristalizar';
@@ -1689,7 +1842,7 @@ const renderPaginatedResponse = text => {
       b.dataset.state = '';
       b.addEventListener('click', (ev) => {
         // prevent inner meta buttons from toggling
-        if (ev.target.closest('.meta')) return;
+        if (ev.target.closest('.meta, .play-btn, .copy-html-btn')) return;
         const alreadySpoken = b.dataset.state === 'spoken';
         if (!alreadySpoken) {
           try { speechSynthesis.cancel(); } catch(e){}
@@ -2016,602 +2169,220 @@ const showLoading = msg => {
     });
   </script>
 
-  <!-- ========== KOBLLUX ∆³ — 7 LINGUAGENS NUCLEARES (INJECTION) ==========
-       This block *augments* the chat: it aggregates engines for 7 core languages
-       (Python, TypeScript, Rust, C/C++, GLSL, Bash, JSON-LD) and hooks into
-       existing chat flow non-destructively. It never removes or replaces
-       original content — it wraps and extends.
-  ================================================================ -->
-  <script>
-  (function(){
-    'use strict';
-    if (window.KOBLLUX_ENGINES) return;
-    window.KOBLLUX_ENGINES = {
-      config: {
-        enabled: true,
-        languages: {
-          python: true,
-          typescript: true,
-          rust: true,
-          cpp: true,
-          glsl: true,
-          bash: true,
-          jsonld: true
-        }
-      },
-      logs: [],
-      // simple detector (inspired by KoblluxCore.classifyText)
-      detectIntent(text) {
-        if (!text) return { intent: 'none', tokens: [] };
-        const tokens = (text.match(/[\p{L}\p{N}_\-\.\:]+/gu) || []).slice(0,60);
-        let intent = 'unknown';
-        const lower = text.toLowerCase();
-        if (/(start|run|exec|execute|rodar|iniciar)/i.test(lower)) intent = 'action.start';
-        if (/(stop|end|parar|sair|)/i.testtest(lower)) intent = 'action.stop';
-        if (/(status|estado|status\?)/i.test(lower)) intent = 'query.status';
-        if (/```|<script|<html|<svg|<canvas/i.test(text)) intent = 'content.html';
-        if (/^\s*\{[\s\S]*\}\s*$/.test(text) && (text.includes('"@context"') || text.includes('"@type"'))) intent = 'data.jsonld';
-        return { intent, tokens };
-      },
-      // language processors
-      processors: {
-        python: {
-          name: 'Python (lint-like)',
-          analyze(code){
-            // basic heuristics: look for exec/eval, imports of os/system calls
-            const issues = [];
-            if (/\\bexec\\s*\\(/.test(code) || /\\beval\\s*\\(/.test(code)) issues.push('unsafe-eval-exec');
-            if (/\\bsubprocess\\b/.test(code) || /\\bos\\b/.test(code)) issues.push('potential-shell-call');
-            const lines = code.split(/\\n/).length;
-            return { issues, lines };
-          },
-          render(code){
-            return { preview: `<pre><code>${escapeHtml(code)}</code></pre>`, mode: 'static' };
-          }
-        },
-        typescript: {
-          name: 'TypeScript (static hints)',
-          analyze(code){
-            const hints = [];
-            if (/any\\b/.test(code)) hints.push('use-of-any');
-            if (/console\\.log\\(/.test(code)) hints.push('console-logging');
-            if (/\\/\\//.test(code)) hints.push('has-line-comments');
-            return { hints, safe: true };
-          },
-          render(code){ return { preview: `<pre><code>${escapeHtml(code)}</code></pre>` }; }
-        },
-        rust: {
-          name: 'Rust (heuristic review)',
-          analyze(code){
-            const notes = [];
-            if (/unsafe\\b/.test(code)) notes.push('unsafe-block');
-            if (/unwrap\\(/.test(code)) notes.push('use-of-unwrap');
-            return { notes };
-          },
-          render(code){ return { preview: `<pre><code>${escapeHtml(code)}</code></pre>` }; }
-        },
-        cpp: {
-          name: 'C/C++ (heuristic)',
-          analyze(code){
-            const notes = [];
-            if (/malloc\\(|free\\(|strcpy\\(|strcat\\(|gets\\(/.test(code)) notes.push('manual-memory-caution');
-            if (/#include <stdio.h>/.test(code)) notes.push('stdio-present');
-            return { notes };
-          },
-          render(code){ return { preview: `<pre><code>${escapeHtml(code)}</code></pre>` }; }
-        },
-        glsl: {
-          name: 'GLSL (shader preview)',
-          analyze(code){
-            // light sanity: must contain main()
-            const ok = /void\\s+main\\s*\\(/.test(code);
-            return { ok, reason: ok ? 'looks-like-shader' : 'no-main' };
-          },
-          async previewShader(code){
-            // compile fragment shader into a small canvas modal. returns DOM node or error
-            const wrapper = document.createElement('div');
-            wrapper.style.padding = '8px';
-            wrapper.style.background = 'rgba(0,0,0,0.9)';
-            wrapper.style.borderRadius = '8px';
-            wrapper.style.color = '#fff';
-            const canvas = document.createElement('canvas');
-            canvas.width = 320; canvas.height = 200;
-            canvas.style.display = 'block';
-            canvas.style.border = '1px solid rgba(255,255,255,0.06)';
-            wrapper.appendChild(canvas);
-            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-            if(!gl) { wrapper.appendChild(document.createTextNode('WebGL não disponível')); return wrapper; }
-            const vert = 'attribute vec2 position; varying vec2 uv; void main(){ uv = position; gl_Position = vec4((position-0.5)*2.0, 0.0, 1.0);}';
-            // wrap fragment shader minimalize
-            const frag = code;
-            function compile(type, source){
-              const s = gl.createShader(type);
-              gl.shaderSource(s, source);
-              gl.compileShader(s);
-              if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-                const err = gl.getShaderInfoLog(s);
-                return { ok:false, err };
-              }
-              return { ok:true, shader:s };
-            }
-            const cv = Math.random().toString(36).slice(2,8);
-            const fRes = compile(gl.FRAGMENT_SHADER, frag);
-            const vRes = compile(gl.VERTEX_SHADER, vert);
-            if(!fRes.ok || !vRes.ok){
-              wrapper.appendChild(document.createElement('pre')).innerText = 'Shader compile error:\\n' + (fRes.err || vRes.err);
-              return wrapper;
-            }
-            const prog = gl.createProgram();
-            gl.attachShader(prog, vRes.shader);
-            gl.attachShader(prog, fRes.shader);
-            gl.linkProgram(prog);
-            if(!gl.getProgramParameter(prog, gl.LINK_STATUS)){
-              wrapper.appendChild(document.createElement('pre')).innerText = 'Shader link error:\\n' + gl.getProgramInfoLog(prog);
-              return wrapper;
-            }
-            gl.useProgram(prog);
-            // simple quad
-            const buf = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0,0, 1,0, 0,1, 1,1]), gl.STATIC_DRAW);
-            const pos = gl.getAttribLocation(prog, 'position');
-            gl.enableVertexAttribArray(pos);
-            gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-            gl.viewport(0,0,canvas.width,canvas.height);
-            try {
-              gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-            } catch(e){
-              wrapper.appendChild(document.createElement('pre')).innerText = 'Runtime shader draw error: ' + e.message;
-              return wrapper;
-            }
-            return wrapper;
-          }
-        },
-        bash: {
-          name: 'Bash (dry-run analyzer)',
-          analyze(code){
-            const warnings = [];
-            if (/\\brm\\s+-rf\\b/.test(code)) warnings.push('dangerous-rm-rf');
-            if (/curl\\s+\\|\\s+bash/.test(code)) warnings.push('pipe-to-shell');
-            if (/sudo\\b/.test(code)) warnings.push('use-of-sudo');
-            return { warnings };
-          },
-          render(code){
-            // render as safe snippet and highlight warnings
-            const out = `<pre><code>${escapeHtml(code)}</code></pre>`;
-            return { preview: out };
-          }
-        },
-        jsonld: {
-          name: 'JSON-LD (semantic record)',
-          analyze(text){
-            try {
-              const obj = JSON.parse(text);
-              const ok = obj && (obj['@context'] || obj['@type']);
-              return { ok, parsed: ok ? obj : null };
-            } catch(e){
-              return { ok:false, error: e.message };
-            }
-          },
-          record(text){
-            try{
-              const obj = JSON.parse(text);
-              const store = JSON.parse(localStorage.getItem('kobllux_jsonld')||'[]');
-              store.unshift({ id: Date.now(), data: obj, at: new Date().toISOString() });
-              localStorage.setItem('kobllux_jsonld', JSON.stringify(store));
-              return { success:true, id: store[0].id };
-            }catch(e){ return { success:false, error:e.message }; }
-          }
-        }
-      },
 
-      // hook system: wrap existing functions non-destructively
-      attachHooks(){
-        // wrap renderPaginatedResponse
-        if (typeof window.renderPaginatedResponse === 'function') {
-          const orig = window.renderPaginatedResponse;
-          window.renderPaginatedResponse = function(text){
-            try { window.KOBLLUX_ENGINES.handleAIResponse(text); } catch(e) { console.warn('KOBLLUX handleAIResponse failed', e); }
-            return orig.apply(this, arguments);
-          };
-        }
-        // wrap sendMessage to run pre-processing
-        if (typeof window.sendMessage === 'function') {
-          const origSend = window.sendMessage;
-          window.sendMessage = function(){
-            try { window.KOBLLUX_ENGINES.beforeSend(); } catch(e) { console.warn('KOBLLUX beforeSend failed', e); }
-            return origSend.apply(this, arguments);
-          };
-        }
-      },
-
-      beforeSend(){
-        // Called before the existing sendMessage runs: tag current user input
-        try {
-          const ui = document.getElementById('userInput');
-          if(!ui) return;
-          const text = ui.value || '';
-          const det = this.detectIntent(text);
-          this.logs.unshift({ at: new Date().toISOString(), stage: 'beforeSend', intent: det.intent, tokens: det.tokens.slice(0,8) });
-          // if json-ld input detected, pre-record
-          if (this.config.languages.jsonld && det.intent === 'data.jsonld') {
-            const rec = this.processors.jsonld.analyze(text);
-            if (rec.ok) {
-              this.processors.jsonld.record(text);
-              showToaster && showToaster('JSON-LD registrado localmente', 'success');
-            }
-          }
-        } catch(e){ console.warn(e); }
-      },
-
-      async handleAIResponse(text){
-        // Called whenever an AI response will be rendered. We analyze response for language blocks
-        try {
-          this.logs.unshift({ at: new Date().toISOString(), stage: 'afterAI', length: (text||'').length });
-          // detect fenced code blocks and language tags
-          const fenceRe = /```(\\w+)?\\n([\\s\\S]*?)```/g;
-          let m;
-          const actions = [];
-          while((m = fenceRe.exec(text)) !== null){
-            const lang = (m[1] || '').toLowerCase();
-            const code = m[2] || '';
-            if(!lang) continue;
-            if(!this.config.languages[lang] && !(lang==='c++' && this.config.languages.cpp)) continue;
-            // map alias
-            const mapped = (lang==='c++' ? 'cpp' : (lang==='js' ? 'typescript' : lang));
-            if(this.processors[mapped]){
-              const proc = this.processors[mapped];
-              const info = proc.analyze ? proc.analyze(code) : null;
-              this.logs.unshift({ at: new Date().toISOString(), lang: mapped, info });
-              // special handling: glsl -> open preview modal
-              if(mapped === 'glsl' && proc.previewShader){
-                actions.push((async ()=>{
-                  const node = await proc.previewShader(code);
-                  window.KOBLLUX_ENGINES.showInspector(lang, node);
-                })());
-              }
-              // bash: highlight dangerous commands in the chat UI (non-executing)
-              if(mapped === 'bash' && info && info.warnings && info.warnings.length){
-                window.KOBLLUX_ENGINES.showInspector('bash', createInspectNode(`<pre>${escapeHtml(code)}</pre><div style="color:var(--neon-danger)">Avisos: ${info.warnings.join(', ')}</div>`));
-              }
-              // python: show linter hints
-              if(mapped === 'python' && info && info.issues && info.issues.length){
-                window.KOBLLUX_ENGINES.showInspector('python', createInspectNode(`<pre>${escapeHtml(code)}</pre><div style="color:var(--neon-gold)">Issues: ${info.issues.join(', ')}</div>`));
-              }
-              // jsonld: attempt to record
-              if(mapped === 'jsonld'){
-                const result = this.processors.jsonld.analyze(code);
-                if(result.ok) {
-                  const rec = this.processors.jsonld.record(code);
-                  if(rec.success) showToaster && showToaster('JSON-LD cristalizado (registro KOBLLUX)', 'success');
-                }
-              }
-            }
-          }
-          // await all actions
-          if(actions.length) await Promise.all(actions);
-        } catch(e){
-          console.warn('KOBLLUX handleAIResponse err', e);
-        }
-      },
-
-      // lightweight inspector UI
-      inspectorRoot: null,
-      createInspectorRoot(){
-        if(this.inspectorRoot) return this.inspectorRoot;
-        const root = document.createElement('div');
-        root.id = 'kobllux-inspector-root';
-        Object.assign(root.style, {
-          position: 'fixed',
-          right: '18px',
-          bottom: '120px',
-          width: '360px',
-          maxHeight: '48vh',
-          overflow: 'auto',
-          background: 'linear-gradient(180deg, rgba(6,8,12,0.95), rgba(10,12,16,0.95))',
-          border: '1px solid rgba(255,255,255,0.06)',
-          borderRadius: '12px',
-          padding: '10px',
-          zIndex: 12000,
-          color: '#e6f9ff',
-          boxShadow: '0 20px 80px rgba(0,0,0,0.7)',
-          fontSize: '0.9rem',
-          display: 'none'
-        });
-        const header = document.createElement('div');
-        header.style.display = 'flex'; header.style.justifyContent = 'space-between'; header.style.alignItems = 'center';
-        const title = document.createElement('div'); title.innerText = 'KOBLLUX ∆³ • Inspector'; title.style.fontWeight = '700';
-        const close = document.createElement('button'); close.innerText = '✕'; close.title = 'Fechar'; Object.assign(close.style, {background:'transparent',border:'none',color:'#fff',cursor:'pointer'});
-        close.onclick = ()=> root.style.display = 'none';
-        header.appendChild(title); header.appendChild(close);
-        root.appendChild(header);
-        const body = document.createElement('div'); body.id = 'kobllux-inspector-body'; body.style.marginTop = '8px'; root.appendChild(body);
-        const toggles = document.createElement('div'); toggles.style.marginTop = '8px';
-        toggles.innerHTML = '<div style="font-size:0.8rem;margin-bottom:6px">Linguagens:</div>';
-        for(const k of Object.keys(this.config.languages)){
-          const btn = document.createElement('button');
-          btn.innerText = k; btn.dataset.lang = k;
-          Object.assign(btn.style, {margin:'2px',padding:'6px',borderRadius:'6px',border:'1px solid rgba(255,255,255,0.06)',background:this.config.languages[k]?'var(--neon-cyan)':'rgba(255,255,255,0.03)',color:this.config.languages[k]?'#000':'#ddd',cursor:'pointer'});
-          btn.onclick = ()=> {
-            const lang = btn.dataset.lang;
-            this.config.languages[lang] = !this.config.languages[lang];
-            btn.style.background = this.config.languages[lang] ? 'var(--neon-cyan)' : 'rgba(255,255,255,0.03)';
-            btn.style.color = this.config.languages[lang] ? '#000' : '#ddd';
-          };
-          toggles.appendChild(btn);
-        }
-        root.appendChild(toggles);
-        document.body.appendChild(root);
-        this.inspectorRoot = root;
-        return root;
-      },
-
-      showInspector(lang, node){
-        try{
-          const root = this.createInspectorRoot();
-          const body = root.querySelector('#kobllux-inspector-body');
-          const card = document.createElement('div');
-          card.style.borderTop = '1px solid rgba(255,255,255,0.04)';
-          card.style.padding = '8px';
-          card.style.marginTop = '8px';
-          const h = document.createElement('div'); h.innerText = lang.toUpperCase(); h.style.fontWeight='700'; h.style.marginBottom='6px';
-          card.appendChild(h);
-          if(typeof node === 'string') {
-            const wrapper = document.createElement('div'); wrapper.innerHTML = node; card.appendChild(wrapper);
-          } else {
-            card.appendChild(node);
-          }
-          body.prepend(card);
-          root.style.display = 'block';
-        }catch(e){ console.warn(e); }
-      },
-
-      openInspector(){
-        const root = this.createInspectorRoot();
-        root.style.display = 'block';
-      },
-
-      // public helper to attach (call once)
-      init(){
-        this.attachHooks();
-        // add a small floating toggle button
-        const btn = document.createElement('button');
-        btn.id = 'kobllux-open-inspector';
-        btn.title = 'KOBLLUX ∆³';
-        btn.innerText = 'Δ³';
-        Object.assign(btn.style, {
-          position:'fixed', right:'18px', bottom:'64px', zIndex:12001,
-          width:'44px', height:'44px', borderRadius:'10px', border:'1px solid rgba(255,255,255,0.06)',
-          background:'linear-gradient(180deg,#001f24,#002b3a)', color:'#aef', fontWeight:700, cursor:'pointer', boxShadow:'0 10px 30px rgba(0,0,0,0.6)'
-        });
-        btn.addEventListener('click', ()=> { this.openInspector(); });
-        document.body.appendChild(btn);
-      }
-    };
-
-    // utility: small HTML node creator
-    function createInspectNode(html){
-      const d = document.createElement('div');
-      d.innerHTML = html;
-      return d;
-    }
-
-    // initialize after a small delay (to ensure existing functions are present)
-    setTimeout(()=>{ try { window.KOBLLUX_ENGINES.init(); console.info('KOBLLUX ∆³ engines attached'); } catch(e){ console.warn('KOBLLUX init failed', e); } }, 300);
-
-  })();
-  </script>
 
 <div class="wrap">
   <div class="content">
     <iframe id="frame" src="https://kodux78k.github.io/oiDual-idHome/" title="Dual Infodose frame"></iframe>
   </div>
 
-  <div class="symbol-bar" aria-hidden="">
-            <button class="symbol-button" data-url="https://kodux78k.github.io/oiDual-idHome/index.html">⌂</button>
-    <button class="symbol-button" data-url="https://kodux78k.github.io/oiDual-Vivivi-1/index.html">◊</button>
-    <button class="symbol-button" data-url="https://kodux78k.github.io/DualInfodose-VirgemHuB/index.html">○</button>
 
+  <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js">
 
-  </div>
+/* ========== RENDERIZAÇÃO INTELIGENTE COM EMOJIS E SÍMBOLOS (DI Pattern) ========== */
 
-
+// Renderiza markdown com botões dinâmicos para emojis e símbolos
+function renderMarkdownDI(raw) {
+  if (!raw) return '';
   
-<button class="lock-button" src="./index.html"></button>
+  return raw
+    .replace(/(["""'])(.+?)\1/g, '<button class="response-button">"$2"</button>')
+    .replace(/\[(.+?)\]/g, '<button class="response-button">[$1]</button>')
+    .replace(/([\u231A-\u2B55\u{1F300}-\u{1F6FF}\u{1F900}-\u{1F9FF}])/gu, '<button class="emoji-button">$1</button>')
+    .replace(/^### (.*)/gm, '<h3>$1</h3>')
+    .replace(/^## (.*)/gm, '<h2>$1</h2>')
+    .replace(/^# (.*)/gm, '<h1>$1</h1>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\n/g, '<br>');
+}
 
-  <div class="controls" role="region" aria-label="Controles">
-    <input id="uploadHTML" type="file" accept=".html" style="display:none">
-    <button id="uploadComponentBtn" class="btn" title="Carregar HTML local">⧉</button>
-    <button id="remoteComponentBtn" class="btn" title="Abrir componente remoto"> ☍ </button>
-    <button id="toggleDecoderBtn" class="btn" title="Abrir decodificador">✦</button>
-  </div>
-
-  <div id="decoderBox" aria-hidden="true">
-    <div style="display:flex;gap:8px;align-items:center">
-      <input id="codeInput" placeholder="Selo (ex: DUAL)">
-      <button id="decodeBtn" class="btn">Abrir</button>
-      <button id="closeDecoder" class="btn">✖</button>
-    </div>
-  </div>
-
-  <div id="pulsos-container" aria-hidden="">
-    <div id="pulsos"></div>
-  </div>
-
-  <!-- <p class="footer">Do seu jeito. <strong>Sempre</strong> único. <strong>Sempre</strong> seu.</p>
-</div> --!>
-
-<!-- lightweight web component modal for remote/local pages -->
-<script>
-/* Δ7-II: TypeScript/UI (Gestão de Estado e Componentes) */
-/* Δ7-VI: Bash (Orquestração de Boot e Eventos) */
-  class MyFrameLoader extends HTMLElement {
-    constructor(){
-      super();
-      this.attachShadow({mode:'open'});
-      this.shadowRoot.innerHTML = `
-        <style>
-          .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:9999}
-          .box{width:92%;height:86%;background:#071017;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
-          .top{display:flex;justify-content:flex-end;padding:8px}
-          button{background:transparent;border:0;color:#fff;font-size:18px;cursor:pointer;padding:6px}
-          iframe{flex:1;border:0}
-        </style>
-        <div class="overlay">
-          <div class="box">
-            <div class="top"><button class="close">✖</button></div>
-            <iframe></iframe>
-          </div>
-        </div>`;
-      this.iframe = this.shadowRoot.querySelector('iframe');
-      this.shadowRoot.querySelector('.close').onclick = ()=> this.remove();
-    }
-    set src(v){ this.iframe.src = v; }
-  }
-  customElements.define('my-frame-loader', MyFrameLoader);
-</script>
-
-<script>
-/* Δ7-II: TypeScript/UI (Gestão de Estado e Componentes) */
-/* Δ7-VI: Bash (Orquestração de Boot e Eventos) */
-(function(){
-  const frame = document.getElementById('frame');
-  const uploadInput = document.getElementById('uploadHTML');
-  const uploadBtn = document.getElementById('uploadComponentBtn');
-  const remoteBtn = document.getElementById('remoteComponentBtn');
-  const toggleDecoderBtn = document.getElementById('toggleDecoderBtn');
-  const decoderBox = document.getElementById('decoderBox');
-  const decodeBtn = document.getElementById('decodeBtn');
-  const closeDecoder = document.getElementById('closeDecoder');
-  const codeInput = document.getElementById('codeInput');
-  const pulsos = document.getElementById('pulsos');
-
-  const CODE_MAP = {
-    "DUAL":"menu.html",
-    "kxt":"https://kodux78k.github.io/oiDual-78KxT-v9/",
-    "eye":"https://kodux78k.github.io/oiDual-EyE-v0/",
-    "KBX":"menu-x-1.html",
-    "betty": "https://kodux78k.github.io/oiDual-Aufabetty/",
-    "PWA": "https://kodux78k.github.io/Htmagik/index.html ",
-    "ATVR":"render-response.html",
-    "UZR":"https://kodux78k.github.io/oiDual-UzR-v0/",
-    "JHB": "https://kodux78k.github.io/DualHubjhbarros/ "
+// Divide texto em Trinity (intro, middle, ending) usando separador ---
+function renderSplitTextDI(txt) {
+  if (!txt) return { intro: '', middle: '', ending: '' };
+  
+  const groups = txt.split('---').map(str => str.trim()).filter(Boolean);
+  return {
+    intro: groups[0] || '',
+    middle: groups[1] || '',
+    ending: groups[2] || ''
   };
+}
 
-  function logMistico(msg){
-    const el = document.createElement('div');
-    el.className = 'debug';
-    el.textContent = '◉ ' + msg;
-    pulsos.prepend(el);
-    // auto-trim
-    while(pulsos.children.length > 80) pulsos.removeChild(pulsos.lastChild);
+// Renderiza blocos de resposta com renderização inteligente por tipo (DI Pattern)
+function renderResponseIntelligentDI(input) {
+  const respEl = document.getElementById('response');
+  if (!respEl) {
+    console.warn('⚠️ Elemento #response não encontrado');
+    return;
   }
+  
+  // Aceita string ou objeto Trinity
+  const { intro, middle, ending } = typeof input === 'string' ? renderSplitTextDI(input) : input;
+  
+  // Limpar páginas anteriores (mantendo initial)
+  Array.from(respEl.querySelectorAll('.page')).forEach(p => {
+    if (!p.classList.contains('initial')) p.remove();
+  });
+  
+  pages = [];
+  const titles = ['🎁 Recompensa Inicial', '👁️ Exploração e Curiosidade', '⚡ Antecipação Vibracional'];
+  
+  // Renderizar cada bloco
+  const renderBlockDI = (text, className, title) => {
+    const block = document.createElement('div');
+    block.className = `response-block ${className}`;
+    
+    const header = document.createElement('div');
+    header.className = 'response-block-header';
+    header.innerHTML = `<h3>${title}</h3>`;
+    
+    const body = document.createElement('div');
+    body.className = 'block-body';
+    body.innerHTML = renderMarkdownDI(text);
+    
+    block.appendChild(header);
+    block.appendChild(body);
+    
+    // Adicionar meta buttons (cristalizar, etc)
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const crystalBtn = document.createElement('button');
+    crystalBtn.className = 'crystal-btn';
+    crystalBtn.textContent = '✶';
+    crystalBtn.title = 'Cristalizar';
+    crystalBtn.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      cristalizar({ title: title, content: text });
+      crystalBtn.textContent = '✓';
+      setTimeout(() => { crystalBtn.textContent = '✶'; }, 1200);
+    });
+    meta.appendChild(crystalBtn);
+    block.appendChild(meta);
+    
+    // Click behavior (TTS / expand)
+    block.dataset.state = '';
+    block.addEventListener('click', (ev) => {
+      if (ev.target.closest('.meta, .play-btn, .copy-html-btn')) return;
+      
+      const alreadySpoken = block.dataset.state === 'spoken';
+      if (!alreadySpoken) {
+        try { speechSynthesis.cancel(); } catch(e){}
+        const textToSpeak = block.querySelector('.block-body') ? block.querySelector('.block-body').innerText : text;
+        speakText(textToSpeak);
+        block.classList.add('clicked');
+        block.dataset.state = 'spoken';
+      } else {
+        block.classList.add('expanded');
+        block.dataset.state = '';
+        if (!assistantEnabled) {
+          assistantEnabled = true;
+          localStorage.setItem('di_assistantEnabled', '1');
+          updateToggleBtnVisual();
+          if (training && trainingActive) conversation.unshift({ role: 'system', content: training });
+        }
+        const blockText = `${title}\n\n${text}`;
+        showLoading('Pulso em Expansão...');
+        speakText('Pulso em Expansão...');
+        conversation.push({ role: 'user', content: blockText });
+        callAI();
+      }
+    });
+    
+    return block;
+  };
+  
+  // Criar página com os 3 blocos
+  const page = document.createElement('div');
+  page.className = 'page active';
+  
+  if (intro) page.appendChild(renderBlockDI(intro, 'intro', titles[0]));
+  if (middle) page.appendChild(renderBlockDI(middle, 'middle', titles[1]));
+  if (ending) page.appendChild(renderBlockDI(ending, 'ending', titles[2]));
+  
+  page.appendChild(createEl('p', 'footer-text', '<em>Do seu jeito. <strong>Sempre</strong> único. <strong>Sempre</strong> seu.</em>'));
+  
+  const controls = respEl.querySelector('.response-controls');
+  if (controls && controls.parentNode) respEl.insertBefore(page, controls);
+  else respEl.appendChild(page);
+  
+  pages.push(page);
+  currentPage = 0;
+  
+  const pi = document.getElementById('pageIndicator');
+  if (pi) pi.textContent = `1 / ${pages.length}`;
+  
+  // Falar primeira página
+  speakPage(0);
+  
+  // Parse símbolos (emojis e colchetes viram botões)
+  parseSymbolsDI(page);
+}
 
-  // load page into main iframe (with small fade)
-  function loadPage(url){
-    frame.style.opacity = 0;
-    setTimeout(()=> {
-      frame.src = url;
-      frame.onload = ()=> frame.style.opacity = 1;
-    }, 220);
-    logMistico('Carregando: ' + url);
+// Converte emojis e símbolos em botões clicáveis (DI Pattern)
+function parseSymbolsDI(container) {
+  if (!container) return;
+  
+  container.querySelectorAll('.response-block').forEach(block => {
+    if (!block.dataset.parsed) {
+      let html = block.innerHTML;
+      
+      // Colchetes [símbolo]
+      html = html.replace(/\[(.+?)\]/g, (_, simbolo) =>
+        `<span class="symbol-button tipo-colchete" onclick="registrarPulsoEEnviarDI('${simbolo.replace(/'/g, "\\'")}')">[${simbolo}]</span>`
+      );
+      
+      // Emojis únicos
+      html = html.replace(/([\p{Emoji}])/gu, (_, emoji) =>
+        `<span class="symbol-button tipo-emoji" onclick="registrarPulsoEEnviarDI('${emoji.replace(/'/g, "\\'")}')">${emoji}</span>`
+      );
+      
+      block.innerHTML = html;
+      block.dataset.parsed = 'true';
+    }
+  });
+}
+
+// Registra pulso (emoji ou símbolo) e envia (DI Pattern)
+function registrarPulsoEEnviarDI(pulso) {
+  console.log('🔮 Pulso registrado (DI):', pulso);
+  
+  // Verificar se assistente está ativo
+  if (!assistantEnabled) {
+    assistantEnabled = true;
+    localStorage.setItem('di_assistantEnabled', '1');
+    updateToggleBtnVisual();
+    if (training && trainingActive) conversation.unshift({ role: 'system', content: training });
   }
+  
+  // Adicionar à conversa e chamar IA
+  if (conversation) {
+    conversation.push({ role: 'user', content: pulso });
+    callAI();
+  }
+}
 
-  // symbol bar clicks
-  document.querySelectorAll('.symbol-button').forEach(b=>{
-    b.addEventListener('click', e=>{
-      const url = b.dataset.url || 'about:blank';
-      loadPage(url);
-    });
-    b.addEventListener('contextmenu', e=>{
-      e.preventDefault();
-      const url = b.dataset.url || 'about:blank';
-      const label = b.textContent || '•';
-      logMistico(`Editar símbolo: ${label} -> ${url} (use editor separado)`);
-    });
-  });
-
-  // upload local HTML into modal viewer
-  uploadBtn.addEventListener('click', ()=> uploadInput.click());
-  uploadInput.addEventListener('change', e=>{
-    const f = e.target.files && e.target.files[0];
-    if (!f) return;
-    if (!f.name.endsWith('.html')) return alert('Selecione um arquivo .html');
-    const r = new FileReader();
-    r.onload = ev=>{
-      const blob = new Blob([ev.target.result], {type:'text/html'});
-      const url = URL.createObjectURL(blob);
-      const modal = document.createElement('my-frame-loader');
-      modal.src = url;
-      document.body.appendChild(modal);
-      logMistico('Preview local: ' + f.name);
-    };
-    r.readAsText(f);
-  });
-
-  // remote component modal
-  remoteBtn.addEventListener('click', ()=>{
-    const url = prompt('URL do componente remoto:');
-    if (!url) return;
-    const modal = document.createElement('my-frame-loader');
-    modal.src = url;
-    document.body.appendChild(modal);
-    logMistico('Aberto remoto: ' + url);
-  });
-
-  // decoder
-  toggleDecoderBtn.addEventListener('click', ()=>{
-    decoderBox.style.display = decoderBox.style.display === 'none' ? 'block' : 'none';
-    decoderBox.setAttribute('aria-hidden', decoderBox.style.display === 'none');
-  });
-  closeDecoder.addEventListener('click', ()=> decoderBox.style.display = 'none');
-  decodeBtn.addEventListener('click', ()=>{
-    const code = (codeInput.value || '').trim().toUpperCase();
-    if (!code) return alert('Digite o selo');
-    const dest = CODE_MAP[code];
-    if (dest){
-      const modal = document.createElement('my-frame-loader');
-      modal.src = dest;
-      document.body.appendChild(modal);
-      decoderBox.style.display = 'none';
-      logMistico('Selo válidado: ' + code + ' → ' + dest);
-    } else {
-      alert('Selo desconhecido.');
-      logMistico('Selo desconhecido: ' + code);
+// Substituir renderPaginatedResponse por versão inteligente
+const renderPaginatedResponseOriginal = renderPaginatedResponse;
+renderPaginatedResponse = function(text) {
+  // Tentar renderização inteligente primeiro
+  try {
+    const trinity = renderSplitTextDI(text);
+    if (trinity.intro || trinity.middle || trinity.ending) {
+      renderResponseIntelligentDI(trinity);
+      return;
     }
-  });
+  } catch (e) {
+    console.warn('⚠️ Renderização inteligente falhou, usando fallback:', e);
+  }
+  
+  // Fallback para renderização original
+  renderPaginatedResponseOriginal.call(this, text);
+};
 
-  // simple postMessage integration for pulses from iframe (if desired)
-  window.addEventListener('message', e=>{
-    if (e.data?.type === 'iframeClick'){
-      const x = e.data.x, y = e.data.y;
-      logMistico('Pulso do iframe em ' + x + ',' + y);
-    }
-  });
 
-  // small keyboard shortcuts
-  document.addEventListener('keydown', (ev)=>{
-    if (ev.key === 't' && (ev.ctrlKey || ev.metaKey)){ // ctrl/cmd + t = toggle decoder
-      ev.preventDefault();
-      decoderBox.style.display = decoderBox.style.display === 'none' ? 'block' : 'none';
-    }
-  });
-
-  // init
-  (function init(){
-    logMistico('Dual.Infodose LITe inicializado');
-    // load saved layout (simple example)
-    const last = localStorage.getItem('dual_last');
-    if (last) frame.src = last;
-    // save main iframe changes
-    frame.addEventListener('load', ()=> localStorage.setItem('dual_last', frame.src));
-  })();
-
-})();
 </script>
-<div id="fusion-soft-layer"></div>
- <div id="navRoot"></div> 
-  <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S16.js"></script>
 
 </body>
 </html>
